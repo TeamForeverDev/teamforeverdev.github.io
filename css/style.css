@@ -1,0 +1,282 @@
+@font-face {
+    font-family: "ZeroesOne";
+    src: url("../Resources/Fonts/ZeroesOne.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "GillSansMedium";
+    src: url("../Resources/Fonts/GillSansMedium.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "arial-black";
+    src: url("../Resources/Fonts/arial-black.ttf") format("truetype");
+}
+
+html {
+    background-color: #fff;
+    scroll-behavior: smooth;
+    scrollbar-color: #fff #000;
+    overflow-x: hidden;
+}
+
+#fadeOverlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 0.4s ease;
+    z-index: 4;
+}
+
+#fadeOverlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#loadingText {
+    color: #fff;
+    font-family: "ZeroesOne", sans-serif;
+    font-size: 4.5em;
+    text-align: center;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.aiLandingPage {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    justify-items: center;
+    row-gap: 1rem;
+    padding: 1.5rem 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #000;
+    color: #fff;
+}
+
+.aiLandingPage::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    background: #000;
+    pointer-events: none;
+    animation: aiFadeFromBlack 1s ease-out forwards;
+}
+
+@keyframes aiFadeFromBlack {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.aiTicker {
+    grid-area: 1 / 1;
+    align-self: start;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 5%;
+    font-family: "ZeroesOne", sans-serif;
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    white-space: nowrap;
+}
+
+.aiTickerTrack {
+    display: flex;
+    width: max-content;
+    animation: aiTickerScroll var(--aiTickerDuration, 3.5s) linear infinite;
+}
+
+.aiTickerGroup {
+    display: flex;
+    flex: none;
+}
+
+.aiTickerGroup span {
+    flex: none;
+    padding-right: 4rem;
+}
+
+@keyframes aiTickerScroll {
+    to { transform: translateX(-50%); }
+}
+
+.aiLandingImage {
+    grid-area: 1 / 1;
+    display: block;
+    width: min(90vw, 1200px);
+    max-height: 68vh;
+    object-fit: contain;
+    justify-self: center;
+}
+
+.aiAfterMessage {
+    grid-area: 2 / 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+    padding: 0 1rem;
+    font-family: "ZeroesOne", sans-serif;
+    font-size: clamp(1rem, 3vw, 2rem);
+    text-align: center;
+    opacity: 0;
+    animation: aiMessageFadeIn 1s ease 10s forwards;
+}
+
+.aiAfterMessage a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.aiAfterMessage img {
+    display: block;
+    width: clamp(100px, 22vw, 240px);
+    height: auto;
+}
+
+@keyframes aiMessageFadeIn {
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aiTickerTrack {
+        animation: none;
+    }
+
+    .aiLandingPage::before {
+        animation: none;
+        opacity: 0;
+    }
+}
+
+header {
+    position: relative;
+}
+
+.TFHeader {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    clip-path: polygon(100% 50%, 100% 0%, 0 0, 0 50%, 50% 85%);
+}
+
+.TFHeader img {
+    width: 300px;
+    height: auto;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+
+main {
+    position: relative;
+    z-index: 2;
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 20px;
+}
+
+footer h1 {
+    font-family: "arial-black", sans-serif;
+    text-align: center;
+    font-size: 140%;
+    margin-top: 10px;
+}
+
+.footer-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.footer-row p {
+    grid-column: 2;
+    max-width: 90ch;
+    text-align: justify;
+    text-align-last: center;
+    margin: 0;
+    font-size: 1.2em;
+    font-family: "GillSansMedium", Helvetica, sans-serif;
+}
+
+#versionNumber {
+    font-size: 1.2em;
+    font-family: "GillSansMedium", Helvetica, sans-serif;
+    color: grey;
+}
+
+.back-to-top {
+    grid-column: 3;
+    justify-self: end;
+}
+
+.single-scroll-container {
+    width: min(90vw, 700px);
+    overflow: hidden;
+    margin: 1rem auto 0;
+}
+
+html.coming-soon-document {
+    background-color: #000;
+}
+
+html.coming-soon-document body {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+}
+
+html.coming-soon-document main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+html.coming-soon-document .single-scroll-container {
+    margin: 0;
+}
+
+.single-scroll-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+}
+
+.single-scroll-track img {
+    display: block;
+    height: auto;
+    width: auto;
+    max-height: 220px;
+    max-width: none;
+    flex: 0 0 auto;
+}
+
+@media only screen and (max-width: 1268px) {
+    .TFHeader img {
+        width: 200px;
+        padding-bottom: 7%;
+    }
+}

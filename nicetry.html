@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="noindex, nofollow">
+		<title>Expecting Something? - Team Forever</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body class="aiLandingPage">
+		<p class="aiTicker">
+			<span class="aiTickerTrack">
+				<span class="aiTickerGroup">
+					<span>EXPECTING SOMETHING?&nbsp;&nbsp;&nbsp;&nbsp;EXPECTING SOMETHING?</span>
+				</span>
+			</span>
+		</p>
+		<img class="aiLandingImage" src="Resources/ai.png">
+		<script>
+			const tickerTrack = document.querySelector(".aiTickerTrack");
+			const tickerGroup = tickerTrack.querySelector(".aiTickerGroup");
+			const tickerPhrase = tickerGroup.firstElementChild.textContent;
+
+			function fillAiTicker() {
+				tickerTrack.replaceChildren(tickerGroup);
+				tickerGroup.replaceChildren();
+
+				const firstPhrase = document.createElement("span");
+				firstPhrase.textContent = tickerPhrase;
+				tickerGroup.append(firstPhrase);
+
+				const phraseWidth = firstPhrase.getBoundingClientRect().width;
+				if (!phraseWidth) {
+					return;
+				}
+
+				while (tickerGroup.scrollWidth < window.innerWidth) {
+					const repeatedPhrase = document.createElement("span");
+					repeatedPhrase.textContent = tickerPhrase;
+					repeatedPhrase.setAttribute("aria-hidden", "true");
+					tickerGroup.append(repeatedPhrase);
+				}
+
+				const duplicateGroup = tickerGroup.cloneNode(true);
+				duplicateGroup.setAttribute("aria-hidden", "true");
+				tickerTrack.append(duplicateGroup);
+
+				tickerTrack.style.setProperty(
+					"--aiTickerDuration",
+					`${tickerGroup.scrollWidth / phraseWidth * 3.5}s`
+				);
+			}
+
+			document.fonts.ready.then(fillAiTicker);
+			window.addEventListener("resize", fillAiTicker);
+
+			async function playNoWayLoop() {
+				const audioContext = new AudioContext();
+				const response = await fetch("Resources/NoWay.mp3");
+				if (!response.ok) {
+					throw new Error(`Audio request failed: ${response.status}`);
+				}
+
+				const audioBuffer = await audioContext.decodeAudioData(await response.arrayBuffer());
+				const source = audioContext.createBufferSource();
+				source.buffer = audioBuffer;
+				source.loop = true;
+				source.connect(audioContext.destination);
+
+				await audioContext.resume();
+				source.start();
+			}
+
+			playNoWayLoop().catch(error => console.error("Unable to play NoWay.mp3:", error));
+		</script>
+	</body>
+</html>
