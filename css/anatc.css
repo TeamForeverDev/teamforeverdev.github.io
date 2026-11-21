@@ -1,0 +1,6 @@
+.ANATCbody{
+    background-image: url("../Resources/BackgroundImage/ANATC-1.png"), url("../Resources/BackgroundImage/ANATC-2.png");
+    background-repeat: no-repeat;
+    background-position: bottom center, top;
+    background-size: cover, 100% auto;
+}

@@ -1,0 +1,39 @@
+.projectBody{
+    background-image: url("../Resources/BackgroundImage/Projects-Top.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% auto;
+}
+
+.projectMain{
+    background-image: url("../Resources/BackgroundImage/Projects-Bottom.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+    background-size: cover;
+
+}
+
+.projectImages{
+    height: 100%;
+    width: 168em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.projectImages img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 2vh auto 2vh;
+}
+
+@media only screen and (max-width: 1268px) {
+    .projectImages {
+        width: 225%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- AlyStyle & Emma Sauve -->
+<!-- December 18 2025 - November 21 2026 -->
+
+<html lang="en">
+    <head>
+		
+		<meta charset="UTF-8" >
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+		<meta name="description" content="Home of all Team Forever projects" >
+		<meta name="robots" content="noindex, nofollow" >
+		<link rel="icon" type="image/x-icon" href="Resources/favicon.ico">
+		<title>About - Team Forever</title>
+
+		<link rel="stylesheet" href="css/reset.css" >
+		<link rel="stylesheet" href="css/style.css" >
+		<link rel="stylesheet" href="css/about.css" >
+        <script src="./js/script.js" defer></script>
+	</head>
+	<body id="top" class="aboutBody">
+		<div id="fadeOverlay">
+			<p id="loadingText">LOADING...</p>
+		</div>
+		<header>
+			<div class="TFHeader">
+				<img src="Resources/Logos/TeamForeverLogo.png" alt="Team Forever Logo">
+			</div>
+			<nav>
+				<ul class="navMenu">
+					<li><a class="navLink" href="index.html">Home</a></li>
+					<li class="selected"><a class="navLink" href="about.html">About</a></li>
+					<li><a class="navLink" href="projects.html">Projects</a></li>
+					<li><a class="navLink" href="community.html">Community</a></li>
+					<li><a class="navLink" href="support.html">Support</a></li>
+					<!-- <li><a class="navLink" href="showcase.html">Showcase</a></li> -->
+					<li><a class="navLink" href="credits.html">Credits</a></li>
+				</ul>
+			</nav>
+			<div class="menu-overlay"></div>
+			<div class="hamburger">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
+		</header>
+		
+		<main>
+			<div>
+				<h2>About the Projects</h2>
+			</div>
+
+			<section class="aboutSection">
+				<p>In 2011 and 2013, SEGA published mobile versions of <a target="_blank" href="https://info.sonicretro.org/Sonic_the_Hedgehog_(2013_game)">Sonic the Hedgehog</a>, <a target="_blank" href="https://info.sonicretro.org/Sonic_the_Hedgehog_2_(2013)">Sonic the Hedgehog 2</a>, and <a target="_blank" href="https://info.sonicretro.org/Sonic_the_Hedgehog_CD_(2011)">Sonic The Hedgehog CD</a>. These were remakes from the ground up of the Mega Drive/Genesis titles by esteemed Sonic hacking community members <a target="_blank" href="https://info.sonicretro.org/The_Taxman">Christian "Taxman" Whitehead</a> and <a target="_blank" href="https://segaretro.org/Simon_Thomley">Simon "Stealth" Thomley</a>, using the Taxman's custom 'Retro Engine'. They could play in a wider screen resolution, 60 frames per second, and even extras like new characters, abilities, and in some cases new levels. These was ported to devices like the Amazon Fire Stick, but by 2021 there was no hope for an official PC or console rerelease.</p>
+				<div class="appIcons">
+					<img src="Resources/About/Sonic1.webp"></img>
+					<img src="Resources/About/Sonic2.webp"></img>
+					<img src="Resources/About/SonicCD.webp"></img>
+				</div>
+			</section>
+
+			<section class="aboutSection">
+				<div class="rsdkIcons">
+					<img id="v3"></img>
+					<img id="v4"></img>
+				</div>
+				<p>However, in January 2021, <a target="_blank" href="https://github.com/Rubberduckycooly">RubberDuckyCooly</a> and <a target="_blank" href="https://github.com/stxticOVFL">stxticOVFL</a>, a pair of talented programmers interested in the Retro Engine's inner workings, released a full decompilation of the engine versions these releases were built on. This allowed people to play the games natively on PC, provided you had a copy of the relevant game's data file. RubberDuckyCooly then decompiled the bytecode of the games, allowing modders to change the script to add their own custom features. These were then further updated and polished by members of the Retro Engine modding community to be updated to the versions seen in SEGA’s long-awaited rerelease through <a target="_blank" href="https://info.sonicretro.org/Sonic_Origins">Sonic Origins.</a></p>
+			</section>
+
+			<section class="aboutSection">
+				<p>Sonic the Hedgehog Forever, Sonic the Hedgehog 2 Absolute and Sonic The Hedgehog CD Infinite are built on this foundation. We've sought to make the classic Sonic the Hedgehog games easier to access on PC, including bug fixes, extra options and abilities that are new to even the mobile ports, but now have expanded to be love-letters to these games with a variety of new and updated content. The downloads come with setup scripts and a relevant tool to unpack the apps automatically, allowing a new player to play the games on PC with very little work.</p>
+				<div class="tfIcons">
+					<img src="Resources/Icons/Icon-S1F.webp"></img>
+					<img src="Resources/Icons/Icon-S2A.svg"></img>
+					<img style="grid-column: 1;" src="Resources/Icons/Icon-ANATC.svg"></img>
+				</div>
+			</section>
+
+			<section class="aboutSection">
+				<div class="sonicGif">
+					<img src="Resources/About/Sonic.gif"></img>
+				</div>
+				<p>We hope that the work we're doing*, on top of the work others have done to make it possible, lets you experience these unforgettable games in the best way possible.<br><span>*Because we're not finished just yet!</span></p>
+			</section>
+
+			<section class="v4Section">
+				<div>
+					<p>All Team Forever projects use <a target="_blank" style="color:aqua; text-decoration: none; font-style: italic" href="https://prodnw.github.io/RSDK-Modding-Wiki-v4-Plus/">RSDKv4+</a>: a modified version of the <a target="_blank" style="color:aqua; text-decoration: none; font-style: italic" href="https://github.com/RSDKModding/RSDKv4-Decompilation">Retro Engine v4 decompilation</a> created by <a target="_blank" style="color:aqua; text-decoration: none; font-style: italic" href="https://twitter.com/prodnw">ProdNW</a>. Team Forever has contributed to this engine fork with the changes found in our original engine fork.</p>
+					<p>This modified engine allows content and features not possible with the base decomplication. This includes:</p>
+					<ul>
+						<li>SteamAPI</li>
+						<li>Discord Rich Pressence</li>
+						<li>Multi-syntax support (Pre-Origins and Current)</li>
+						<li>Increased memory for graphics and sound</li>
+						<li>More freedom with sprite effects, graphic effects</li>
+						<li>And many more!</li>
+					</ul>
+					<p>For those interested, the code is open-source, and available here.</p>
+
+					<p>This is just the engine that runs the decompiled games, so it won't run without the game assets. It's forked from the original decompilation by RubberDuckyCooly and RMGRich, which you can find here.</p>
+
+					<p>You do not need this to install and play our projects. All you need for that is the downloads from the relevant page.</p>
+				</div>
+				<div class="v4Image">
+					<img src="Resources/Icons/V4+.svg"></img>
+				</div>
+			</section>
+			<h1 class="sourcecodeTitle">Retro Engine V4+</h1>
+		</main>
+
+		<footer>
+			<div class="footer-row">
+				<p>"Sonic the Hedgehog Forever", “Sonic the Hedgehog 2 Absolute”, “Sonic the Hedgehog 2 Absolute : A Night at the Casino”, and “Sonic The Hedgehog CD Infinite” are non-profit fan game projects. They are not affiliated with SEGA®, Sonic Team®, Evening Star®, or Headcannon® in any way. Sonic the Hedgehog is a trademark of SEGA®. All copyrights regarding Sonic the Hedgehog, including characters, names, terms, art, and music belong to SEGA®. All registered trademarks belong to SEGA® and Sonic Team®. Retro Engine is a trademark of Evening Star®. Team Forever have no intent to infringe said copyrights and registered trademarks. No financial gain is made from these projects.</p>
+				<a href="#top" class="back-to-top">
+					<img src="Resources/Arrows/up.png" alt="Back to top">
+				</a>
+			</div>
+			<h1>2021 - 2026 Team Forever</h1>
+			<p style="color:grey;" id="versionNumber"></p>
+		</footer>
+	</body>
+

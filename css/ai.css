@@ -1,0 +1,111 @@
+.aiLandingPage {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    justify-items: center;
+    row-gap: 1rem;
+    padding: 1.5rem 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #000;
+    color: #fff;
+}
+
+.aiLandingPage::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    background: #000;
+    pointer-events: none;
+    animation: aiFadeFromBlack 1s ease-out forwards;
+}
+
+@keyframes aiFadeFromBlack {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.aiTicker {
+    grid-area: 1 / 1;
+    align-self: start;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 5%;
+    font-family: "ZeroesOne", sans-serif;
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    white-space: nowrap;
+}
+
+.aiTickerTrack {
+    display: flex;
+    width: max-content;
+    animation: aiTickerScroll var(--aiTickerDuration, 3.5s) linear infinite;
+}
+
+.aiTickerGroup {
+    display: flex;
+    flex: none;
+}
+
+.aiTickerGroup span {
+    flex: none;
+    padding-right: 4rem;
+}
+
+@keyframes aiTickerScroll {
+    to { transform: translateX(-50%); }
+}
+
+.aiLandingImage {
+    grid-area: 1 / 1;
+    display: block;
+    width: min(90vw, 1200px);
+    max-height: 68vh;
+    object-fit: contain;
+    justify-self: center;
+}
+
+.aiAfterMessage {
+    grid-area: 2 / 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+    padding: 0 1rem;
+    font-family: "ZeroesOne", sans-serif;
+    font-size: clamp(1rem, 3vw, 2rem);
+    text-align: center;
+    opacity: 0;
+    animation: aiMessageFadeIn 1s ease 10s forwards;
+}
+
+.aiAfterMessage a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.aiAfterMessage img {
+    display: block;
+    width: clamp(100px, 22vw, 240px);
+    height: auto;
+}
+
+@keyframes aiMessageFadeIn {
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aiTickerTrack {
+        animation: none;
+    }
+
+    .aiLandingPage::before {
+        animation: none;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,259 @@
+.creditsBody{
+    background-image: url("../Resources/BackgroundImage/Credits-Top.png"), url("../Resources/BackgroundImage/Credits-Bottom.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: top center, bottom center;
+    background-size: 100% auto, 100% auto;
+}
+.creditsMain{
+    background-image: url("../Resources/BackgroundImage/Credits-Middle.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+}
+
+.creditsMain h1 {
+    font-family: "ZeroesOne", Helvetica, sans-serif;
+    color: black;
+    font-size: 5em;
+    text-decoration: dotted underline;
+    text-align: center;
+}
+
+.creditsMain p {
+    font-family: "arial-black", sans-serif;
+    margin: 0 auto;
+    max-width: 1000px;
+    font-size: 1.5em;
+}
+
+.creditsTitle {
+    background-color: #0000FF;
+    padding: 0.5%;
+    margin-top: 2vh;
+}
+.creditsTitle h4 {
+    font-family: "PenumbraSansStd", sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 190%;
+}
+
+.credits-lead {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    margin: 3rem auto;
+    width: 70%;
+}
+
+.credits-lead section {
+    position: relative;
+    width: 100%;
+    border-radius: 40px;
+    background: #0000FF;
+    padding: 6px;
+}
+
+.credits-lead section::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    background: rgb(255, 255, 255);
+    border-radius: 34px;
+    z-index: 0;
+}
+
+.credit-lead-header {
+    position: relative;
+    padding: 1.5rem 2rem;
+    border-radius: 34px 34px 0 0;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+.credit-lead-header img {
+    border-radius: 60px;
+    width: 200px;
+}
+.credit-lead-header h1 {
+    font-family: "ZeroesOne", Helvetica, sans-serif;
+    font-size: 200%;
+    text-decoration: none;
+}
+.credit-lead-header h2 {
+    font-family: "ZeroesOne", Helvetica, sans-serif;
+    font-size: 100%;
+    text-transform: none;
+    text-decoration: none;
+}
+
+.credit-lead-contacts {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+}
+.credit-lead-contacts img {
+    width: 200px;
+}
+
+.credit-section, .credit-section-nonteam {
+    position: relative;
+    width: 70%;
+    margin: 3rem auto;
+    border-radius: 40px;
+    background: #0000FF;
+    padding: 6px;
+}
+
+.credit-section::before,
+.credit-lead section::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    background: white;
+    border-radius: 34px;
+    z-index: 0;
+}
+
+.credit-section-nonteam::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    background: #9698FF;
+    border-radius: 34px;
+    z-index: 0;
+}
+
+.credit-name{
+    margin-left: 70px;
+}
+
+.credit-header {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin: 1rem 0 1rem 0;
+    text-align: center;
+    align-items: center;
+}
+.credit-header {
+    background-color: #9698FF;
+}
+.credit-header img {
+    width: 100px;
+    margin-left: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.credit-header h1, .credit-header-nonteam h1 {
+    font-family: "ZeroesOne", Helvetica, sans-serif;
+    font-size: 200%;
+    text-decoration: none;
+}
+.credit-header h1 a, .credit-header-nonteam h1 a {
+    color: #000000;
+}
+.credit-header h2, .credit-header-nonteam h2 {
+    font-family: "ZeroesOne", Helvetica, sans-serif;
+    font-size: 100%;
+    text-transform: none;
+    text-decoration: none;
+}
+
+.credit-contacts {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 5%;
+}
+.credit-contacts img {
+    width: 100px;
+}
+
+.credit-header-nonteam, .credit-section-endbrand {
+    position: relative;
+    margin: 1rem 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.credit-header-nonteam img {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.credit-section-endbrand img {
+    width: 500px;
+    margin-bottom: 10px;
+}
+
+.remsLogo {
+    background-image: url("../Resources/Logos/REMS.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    width: 500px;
+    height: 150px;
+    margin: 0 auto;
+}
+.remsLogo:hover {
+    background-image: url("../Resources/Logos/REMS_highlight.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    width: 500px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 1268px) {
+
+
+    .creditsMain div{
+        font-size: 0.8em;
+    }
+
+
+    .credit-lead-contacts img{
+     width: 10vh;
+    }
+
+
+    .credit-lead-section {
+        position: relative;
+        border-radius: 40px;
+        background: #0000FF;
+    }
+
+
+    .credit-header{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .credit-contacts{
+        justify-content: center;
+
+    }
+
+
+    .credits-lead {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 40px;
+        margin: 3rem auto;
+        max-width: 100vh;
+    }
+
+
+    .credit-name{
+        margin-left: 0;
+    }
+}

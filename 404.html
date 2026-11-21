@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Invalid Site - Team Forever</title>
+	</head>
+	<body>
+		<p>EXPECTING SOMETHING?</p>
+		<script>
+			const repositoryName = "NuTeamForeverWebsite";
+			const siteRoot = window.location.hostname.endsWith(".github.io") &&
+				window.location.pathname.startsWith(`/${repositoryName}/`)
+				? `/${repositoryName}/`
+				: "/";
+			window.location.replace(`${window.location.origin}${siteRoot}looker.html?invalid=1`);
+		</script>
+	</body>
+</html>

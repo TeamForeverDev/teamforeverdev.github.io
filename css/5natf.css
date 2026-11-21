@@ -1,0 +1,26 @@
+.natfbody{
+    background-image: url("../Resources/BackgroundImage/5NATF-1.png"), url("../Resources/BackgroundImage/5NATF-2.png");
+    background-repeat: no-repeat;
+    background-position: bottom center, top;
+    background-size: cover, 100% auto;
+}
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.natfbody::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6); /* adjust darkness here */
+    z-index: 0;
+    pointer-events: none;
+}

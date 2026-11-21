@@ -1,0 +1,42 @@
+.single-scroll-container {
+    width: min(90vw, 700px);
+    overflow: hidden;
+    margin: 1rem auto 0;
+}
+
+html.coming-soon-document {
+    background-color: #000;
+}
+
+html.coming-soon-document body {
+    background-color: #000;
+}
+
+.single-scroll-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+}
+
+.single-scroll-track img {
+    display: block;
+    height: auto;
+    width: auto;
+    max-height: 220px;
+    max-width: none;
+    flex: 0 0 auto;
+}
+
+.sCDibody{
+    background-image: url("../Resources/BackgroundImage/SCDi-1.png"), url("../Resources/BackgroundImage/SCDi-2.png");
+    background-repeat: no-repeat;
+    background-position: bottom center, top;
+    background-size: cover, 100% auto;
+}
+
+.mulitpleImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
