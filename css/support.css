@@ -5,6 +5,42 @@
     background-size: 100% auto, 100% auto;
 }
 
+.supportBody.hide-support-bottom {
+    background-image: url("../Resources/BackgroundImage/Support-Top.png");
+    background-position: top center;
+}
+
+.faq-search {
+  display: block;
+  box-sizing: border-box;
+  width: calc(100% - 2rem);
+  max-width: 1000px;
+  margin: 1.5rem auto;
+  padding: 0.9rem 1.5rem;
+  border: 6px solid #0000FF;
+  border-radius: 2rem;
+  background: white;
+  color: #00006F;
+  font: 1.2rem "GillSansMedium", Helvetica, sans-serif;
+}
+
+.faq-search:focus-visible {
+  outline: 3px solid #00006F;
+  outline-offset: 3px;
+}
+
+.faq-no-results {
+  max-width: 1000px;
+  margin: 0 auto 1.5rem;
+  color: black;
+  font: 1.2rem "ZeroesOne", Helvetica, sans-serif;
+  text-align: center;
+}
+
+.faq-section.faq-hidden {
+  display: none;
+}
+
 .faq-section {
   position: relative;
   width: 100%;

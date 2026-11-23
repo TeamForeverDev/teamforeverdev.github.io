@@ -75,6 +75,39 @@ if (communityBody) {
     };
 }
 
+const faqSearch = document.querySelector("#faq-search");
+if (faqSearch) {
+    const faqSections = document.querySelectorAll(".faq-section");
+    const faqNoResults = document.querySelector("#faq-no-results");
+    const supportBody = document.querySelector(".supportBody");
+
+    faqSearch.addEventListener("input", () => {
+        const keywords = faqSearch.value
+            .trim()
+            .toLocaleLowerCase()
+            .split(/\s+/)
+            .filter(Boolean);
+        let visibleCount = 0;
+
+        faqSections.forEach(section => {
+            const heading = section.querySelector(".faq-header");
+            const headingText = heading.textContent.toLocaleLowerCase();
+            const matches = keywords.every(keyword => headingText.includes(keyword));
+
+            section.hidden = !matches;
+            section.classList.toggle("faq-hidden", !matches);
+            if (matches) visibleCount++;
+        });
+
+        if (faqNoResults) {
+            faqNoResults.hidden = visibleCount !== 0;
+        }
+        if (supportBody) {
+            supportBody.classList.toggle("hide-support-bottom", visibleCount <= 1);
+        }
+    });
+}
+
 const supportBody = document.querySelector(".supportBody");
 if (supportBody) {
     const bottomImg = new Image();
@@ -90,9 +123,14 @@ if (supportBody) {
             const containerHeight = supportBody.offsetHeight;
             const renderedHeight = elementWidth * imgRatio;
 
-            const baseBottomOffset = containerHeight - renderedHeight;
-
             const topOffset = offsetFromTop * -0.3;
+
+            if (supportBody.classList.contains("hide-support-bottom")) {
+                supportBody.style.backgroundPosition = `center ${topOffset}px`;
+                return;
+            }
+
+            const baseBottomOffset = containerHeight - renderedHeight;
 
             let bottomOffset = baseBottomOffset + (offsetFromTop * -0.3);
             bottomOffset = Math.min(bottomOffset, baseBottomOffset);
@@ -317,6 +355,16 @@ function projectPopup(projectid , projectimage) {
         projectSocialLink.href = "https://bsky.app/profile/teamredream.bsky.social";
         projectSocialLink.innerText = "Bluesky";
     }
+    if (projectid === "ManiaAddendum_KiaraGale") {
+        projectAuthor.innerText = "By KiaraGale";
+        projectPromo.src = "Resources/Logos/3rdParty/ManiaAddendum_KiaraGale.png";
+        projectDesc.innerText = "";
+        whoEnvolved.innerText = "";
+        projectSiteLink.href = "";
+        projectSiteLink.innerText = "";
+        projectSocialLink.href = "";
+        projectSocialLink.innerText = "";
+    }
     if (projectid === "OriginsUltrafix_TeamUltrafix") {
         projectAuthor.innerText = "By Team Ultrafix";
         projectPromo.src = "Resources/Home/ThirdParty/Thumbnails/Ultrafix.png";
@@ -354,6 +402,26 @@ function projectPopup(projectid , projectimage) {
         whoEnvolved.innerText = "Some members of Team Forever have contributed to this mod, including AlyStyle, LittlePlanetCD, KiaraGale, and nabbup, and we are also personally big fans of the team's work!";
         projectSiteLink.href = "https://shc.zone/entries/contest2026/1541";
         projectSiteLink.innerText = "Download";
+        projectSocialLink.href = "https://discord.gg/4SCaUQx5cS";
+        projectSocialLink.innerText = "Discord";
+    }
+    if (projectid === "DuoMania"){
+        projectAuthor.innerText = "by Team Galore";
+        projectPromo.src = "Resources/Home/ThirdParty/Thumbnails/DuoMania.png";
+        projectDesc.innerText = "Mighty and Ray come back to Angel Island after their time in Sonic Mania Plus to have fun! Team Galore's take on the duo brings customizable movesets inspired by different fangames and non-Sonic games for Mighty and Ray!";
+        whoEnvolved.innerText = "Some members of Team Forever have contributed to this mod, including AlyStyle, LittlePlanetCD, KiaraGale, and nabbup, and we are also personally big fans of the team's work!";
+        projectSiteLink.href = "https://discord.gg/4SCaUQx5cS";
+        projectSiteLink.innerText = "Discord";
+        projectSocialLink.href = "BLANK";
+        projectSocialLink.innerText = "";
+    }
+    if (projectid === "MarioMayhem"){
+        projectAuthor.innerText = "by Team Galore";
+        projectPromo.src = "Resources/Home/ThirdParty/Thumbnails/MarioMayhem.png";
+        projectDesc.innerText = "Team Galore bring Mario and Luigi to Angel Island with gameplay as close to real Mario as it can get! Traverse through the original environments with all-new gameplay and mechanics pulled from the Mario series, using existing mechanics with the plumbers' arsenal to work your way around the game!";
+        whoEnvolved.innerText = "Some members of Team Forever have contributed to this mod, including AlyStyle, LittlePlanetCD, KiaraGale, and nabbup, and we are also personally big fans of the team's work!";
+        projectSiteLink.href = "";
+        projectSiteLink.innerText = "COMING SOON";
         projectSocialLink.href = "https://discord.gg/4SCaUQx5cS";
         projectSocialLink.innerText = "Discord";
     }
@@ -639,9 +707,13 @@ if (cominSoon) {
 
 const filterButton1F = document.getElementById('filter-1F');
 const filterButton2A = document.getElementById('filter-2A');
+// const filterButtonANATC = document.getElementById('filter-ANATC');
+// const filterButtonCDi = document.getElementById('filter-CDi');
 
 let filterImg1F;
 let filterImg2A;
+// let filterImgANATC;
+// let filterImgCDi;
 
 if (filterButton1F) {
     filterImg1F = filterButton1F.querySelector('img');
@@ -650,6 +722,8 @@ if (filterButton1F) {
         if (filterImg1F.src.includes('1F_Unselected.png')) {
             filterImg1F.src = 'Resources/Community/1F_Selected.png';
             filterImg2A.src = 'Resources/Community/2A_Unselected.png';
+            // filterImgANATC.src = 'Resources/Community/ANATC_Unselected.png';
+            // filterImgCDi.src = 'Resources/Community/CDi_Unselected.png';
         }
         loadMods();
     });
@@ -662,11 +736,40 @@ if (filterButton2A) {
         if (filterImg2A.src.includes('2A_Unselected.png')) {
             filterImg1F.src = 'Resources/Community/1F_Unselected.png';
             filterImg2A.src = 'Resources/Community/2A_Selected.png';
+            // filterImgANATC.src = 'Resources/Community/ANATC_Unselected.png';
+            // filterImgCDi.src = 'Resources/Community/CDi_Unselected.png';
         }
         loadMods();
     });
 }
 
+// if (filterButtonANATC) {
+//     filterImgANATC = filterButtonANATC.querySelector('img');
+
+//     filterButtonANATC.addEventListener('click', (e) => {
+//         if (filterImgANATC.src.includes('ANATC_Unselected.png')) {
+//             filterImg1F.src = 'Resources/Community/1F_Unselected.png';
+//             filterImg2A.src = 'Resources/Community/2A_Unselected.png';
+//             filterImgANATC.src = 'Resources/Community/ANATC_Selected.png';
+//             filterImgCDi.src = 'Resources/Community/CDi_Unselected.png';
+//         }
+//         loadMods();
+//     });
+// }
+
+// if (filterButtonCDi) {
+//     filterImgCDi = filterButtonCDi.querySelector('img');
+
+//     filterButtonCDi.addEventListener('click', (e) => {
+//         if (filterImgCDi.src.includes('CDi_Unselected.png')) {
+//             filterImg1F.src = 'Resources/Community/1F_Unselected.png';
+//             filterImg2A.src = 'Resources/Community/2A_Unselected.png';
+//             filterImgANATC.src = 'Resources/Community/ANATC_Unselected.png';
+//             filterImgCDi.src = 'Resources/Community/CDi_Selected.png';
+//         }
+//         loadMods();
+//     });
+// }
 
 
 async function loadMods() {
@@ -678,6 +781,12 @@ async function loadMods() {
     if (filterImg2A.src.includes("2A_Selected.png")) {
         projecttag = "15019";
     }
+    // if (filterImgANATC.src.includes("ANATC_Selected.png")) {
+    //     projecttag = "15780";
+    // }
+    // if (filterImgCDi.src.includes("CDi_Selected.png")) {
+    //     projecttag = "6108";
+    // }
 
     const res = await fetch("https://api.gamebanana.com/Rss/Featured?gameid=" + projecttag);
     const xmlText = await res.text();
